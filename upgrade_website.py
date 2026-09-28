@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+import os
+
+def create_advanced_website():
+    html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1445,3 +1448,10 @@
 
 </body>
 </html>
+'''
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print("Advanced, modern index.html successfully generated!")
+
+if __name__ == "__main__":
+    create_advanced_website()
