@@ -39,7 +39,11 @@ FINAL MOODLE SUBMISSION FILE CHECKLIST:
      'A2_Group_ProjectLibre_import.xml' -> File -> Save As ->
      'A2_GroupXX_ProjectLibre.pod')
 
-[5] Diagram Exports (Already embedded in Evidence Pack & Website):
+[5] Live Trello Kanban Board URL:
+    https://trello.com/b/6aba6567933223c336fb8dfc/bisy2004-omniportal-student-portal-consolidation-%F0%9F%93%9A
+    (Backup invite access: https://trello.com/invite/b/6aba6567933223c336fb8dfc/ATTI29ff6995945d288c60150e86fa03aa427F8471FC/bisy2004-omniportal-student-portal-consolidation-📚)
+
+[6] Diagram Exports (Already embedded in Evidence Pack & Website):
     - A2_Group_WBS_Diagram.drawio
     - A2_Group_Stakeholder_Matrix.drawio
 
