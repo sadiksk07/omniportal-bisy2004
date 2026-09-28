@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniPortal | BISY2004 Integrated Project Management</title>
+  <style>
+    :root {
+      --primary: #1B365D;
+      --primary-light: #2A4D7C;
+      --accent: #0066CC;
+      --bg: #F8F9FA;
+      --card-bg: #FFFFFF;
+      --text: #212529;
+      --text-muted: #6C757D;
+      --border: #DEE2E6;
+      --success: #28A745;
+      --warning: #FFC107;
+      --danger: #DC3545;
+      --info: #17A2B8;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* Header & Navigation */
+    header { background: var(--primary); color: white; padding: 1.5rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .header-title h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
+    .header-title p { font-size: 0.85rem; opacity: 0.85; }
+    nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav a { color: white; text-decoration: none; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 500; transition: background 0.2s; }
+    nav a:hover, nav a.active { background: var(--primary-light); }
+
+    /* Main Container */
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+
+    /* Hero / Banner */
+    .hero { background: white; border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+    .hero-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; font-size: 0.88rem; }
+    .meta-box { background: var(--bg); padding: 0.75rem 1rem; border-radius: 6px; border: 1px solid var(--border); }
+    .meta-box span { font-weight: bold; color: var(--primary); display: block; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 0.25rem; }
+
+    /* Section Styling */
+    section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.03); scroll-margin-top: 5rem; }
+    .section-header { border-bottom: 2px solid var(--bg); padding-bottom: 0.75rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; }
+    .section-header h2 { font-size: 1.3rem; color: var(--primary); font-weight: 700; }
+    .section-badge { font-size: 0.75rem; background: var(--bg); color: var(--text-muted); padding: 0.25rem 0.5rem; border-radius: 4px; border: 1px solid var(--border); }
+
+    /* Evidence Analysis Box */
+    .analysis-box { background: #F4F7FB; border: 1px solid #D0DCE8; border-radius: 6px; padding: 1.25rem; margin: 1.25rem 0; }
+    .analysis-title { font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .analysis-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    @media (max-width: 768px) { .analysis-grid { grid-template-columns: 1fr; } }
+    .analysis-item { background: white; padding: 0.85rem; border-radius: 4px; border: 1px solid #E1E8F0; font-size: 0.85rem; }
+    .analysis-item strong { display: block; color: var(--accent); margin-bottom: 0.25rem; font-size: 0.8rem; text-transform: uppercase; }
+
+    /* Tables */
+    .table-responsive { overflow-x: auto; margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { padding: 0.65rem 0.85rem; border: 1px solid var(--border); text-align: left; }
+    th { background: var(--primary); color: white; font-weight: 600; }
+    tr:nth-child(even) { background: #FAFAFA; }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .font-bold { font-weight: bold; }
+
+    /* Badges */
+    .badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-align: center; }
+    .badge-danger { background: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB; }
+    .badge-warning { background: #FFF3CD; color: #856404; border: 1px solid #FFEEBA; }
+    .badge-success { background: #D4EDDA; color: #155724; border: 1px solid #C3E6CB; }
+    .badge-primary { background: #CCE5FF; color: #004085; border: 1px solid #B8DAFF; }
+    .badge-info { background: #D1ECF1; color: #0C5460; border: 1px solid #BEE5EB; }
+
+    /* EVM KPI Cards */
+    .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+    .kpi-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .kpi-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem; }
+    .kpi-val { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+    .kpi-val.negative { color: var(--danger); }
+    .kpi-val.neutral { color: #856404; }
+    .kpi-val.positive { color: var(--success); }
+
+    /* Diagram Placeholders & SVG frames */
+    .diagram-frame { background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin: 1.25rem 0; text-align: center; }
+    .diagram-caption { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+    /* Footer */
+    footer { background: var(--primary); color: white; padding: 2rem; font-size: 0.85rem; text-align: center; margin-top: 3rem; }
+    footer a { color: #A0C4FF; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="header-title">
+      <h1>OmniPortal: Student Portal Consolidation</h1>
+      <p>BISY2004 Project Management | Secure Lane Assessment 2</p>
+    </div>
+    <nav>
+      <a href="#section1">1. Scope &amp; WBS</a>
+      <a href="#section2">2. Schedule &amp; Cost</a>
+      <a href="#section3">3. Risk &amp; Stakeholders</a>
+      <a href="#section4">4. Quality &amp; Change</a>
+      <a href="#section5">5. Dashboard &amp; EVM</a>
+      <a href="#section6">6. Recommendation</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HERO META -->
+  <div class="hero">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+      <h2 style="font-size:1.15rem; color:var(--primary);">Group Project Executive Metadata</h2>
+      <span class="badge badge-success">Status: Baseline Executing (Week 14)</span>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-box">
+        <span>Student Team</span>
+        Tanvir Ahmed (238983)<br>
+        Momen Ahmed (242048)<br>
+        MD Rejvi Jaman Mafti (241964)
+      </div>
+      <div class="meta-box">
+        <span>Scenario Selected</span>
+        Scenario C: University Student Portal Consolidation (Apex Metropolitan University)
+      </div>
+      <div class="meta-box">
+        <span>Approved Budget Cap</span>
+        $450,000 AUD (Capex + Opex)<br>
+        Baseline BAC: $385,000 AUD
+      </div>
+      <div class="meta-box">
+        <span>Timeline &amp; Window</span>
+        24 Weeks (120 Working Days)<br>
+        02 Feb 2026 – 17 Jul 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <section id="section1">
+    <div class="section-header">
+      <h2>1. Project Overview, Charter &amp; Scope</h2>
+      <span class="section-badge">Lead: Tanvir Ahmed (238983)</span>
+    </div>
+    
+    <p><strong>Business Need &amp; Problem:</strong> Apex Metropolitan University currently operates four disconnected student-facing portals: a legacy Blackboard LMS, Ellucian Banner SIS for enrolment, TouchNet for fee billing, and Zendesk for student support. Disjointed logins force students across multiple interfaces, generating 4,200 repetitive helpdesk calls per semester, an 18% record desynchronization rate, and $185,000 in annual multi-vendor maintenance contracts.</p>
+    
+    <p style="margin-top:0.75rem;"><strong>Project Purpose &amp; Objectives:</strong> The purpose of Project OmniPortal is to consolidate all student-facing administrative and academic workflows into a single cloud-native responsive platform. The four core project objectives are: (1) Deliver production cutover within 24 weeks prior to Semester 1 enrolment; (2) Remain within the approved $450,000 budget envelope; (3) Achieve 100% data fidelity migrating 28,000 student academic profiles; and (4) Attain 99.95% system uptime under peak concurrent loads.</p>
+
+    <p style="margin-top:0.75rem;"><strong>Development Lifecycle:</strong> A <em>Hybrid Agile-Waterfall</em> methodology is deployed. Predictive Waterfall governance manages charter sign-off, enterprise architecture, security compliance, and final blue-green cutover. Two-week Agile sprints execute iterative UX prototyping, feature coding, and ETL data migration scripts.</p>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:50%;">In-Scope Deliverables</th>
+            <th style="width:50%;">Explicit Project Exclusions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>• Centralized Single Sign-On (SSO) with MFA authentication.<br>• Real-time course cart enrolment, timetable builder, fee processing.<br>• Automated ETL migration of 28,000 student historical records.<br>• WCAG 2.1 AA accessible web and responsive mobile client.</td>
+            <td>• Migration of legacy HR and payroll enterprise systems.<br>• Development of native iOS/Android binary app store packages.<br>• Overhaul of physical student smartcard campus turnstiles.<br>• Ongoing operational helpdesk staffing beyond hypercare.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WBS Display -->
+    <div class="diagram-frame">
+      <h3 style="font-size:0.95rem; color:var(--primary); margin-bottom:0.5rem;">Work Breakdown Structure (WBS) Architecture</h3>
+      <svg viewBox="0 0 1000 320" style="width:100%; max-height:320px; font-family:var(--font); font-size:11px;">
+        <rect x="360" y="10" width="280" height="45" rx="5" fill="#1B365D"/>
+        <text x="500" y="32" fill="#fff" text-anchor="middle" font-weight="bold">PROJECT OMNIPORTAL (WBS 0.0)</text>
+        <text x="500" y="47" fill="#A0C4FF" text-anchor="middle" font-size="9.5">Budget: $450k | Duration: 24 Weeks</text>
+
+        <!-- Level 1 Boxes -->
+        <g transform="translate(10, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">1.0 Initiation</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">15 Days | $16.5k</text>
+        </g>
+        <g transform="translate(175, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">2.0 Requirements</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">20 Days | $31.2k</text>
+        </g>
+        <g transform="translate(340, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">3.0 Data Migration</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">25 Days | $39.5k</text>
+        </g>
+        <g transform="translate(505, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">4.0 Core Portal Dev</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">35 Days | $68.0k</text>
+        </g>
+        <g transform="translate(670, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">5.0 QA &amp; Testing</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">20 Days | $34.8k</text>
+        </g>
+        <g transform="translate(835, 85)">
+          <rect x="0" y="0" width="150" height="40" rx="4" fill="#2A4D7C"/>
+          <text x="75" y="18" fill="#fff" text-anchor="middle" font-weight="bold">6.0 Deployment</text>
+          <text x="75" y="32" fill="#E8EEF5" text-anchor="middle" font-size="9">15 Days | $24.2k</text>
+        </g>
+
+        <!-- Connecting lines -->
+        <path d="M500,55 L500,70 M85,70 L910,70 M85,70 L85,85 M250,70 L250,85 M415,70 L415,85 M580,70 L580,85 M745,70 L745,85 M910,70 L910,85" stroke="#1B365D" stroke-width="1.5" fill="none"/>
+
+        <!-- Sample Level 2 Packages -->
+        <g transform="translate(10, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">1.1 Charter &amp; Sign-off</text>
+          <text x="8" y="42" font-weight="600" fill="#333">1.2 PMP &amp; Risk Plan</text>
+          <text x="8" y="64" font-weight="600" fill="#333">1.3 Governance Kickoff</text>
+          <rect x="5" y="80" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="95" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M1: Charter Signed</text>
+        </g>
+        <g transform="translate(175, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">2.1 Requirements Spec</text>
+          <text x="8" y="42" font-weight="600" fill="#333">2.2 Privacy / APP Review</text>
+          <text x="8" y="64" font-weight="600" fill="#333">2.3 Cloud Spec (AWS)</text>
+          <text x="8" y="86" font-weight="600" fill="#333">2.4 API Protocols</text>
+          <rect x="5" y="105" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="120" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M2: Spec Approved</text>
+        </g>
+        <g transform="translate(340, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">3.1 Data Cleansing</text>
+          <text x="8" y="42" font-weight="bold" fill="#721C24">3.2 Automated ETL*</text>
+          <text x="8" y="64" font-weight="600" fill="#333">3.3 Schema Tuning</text>
+          <text x="8" y="86" font-weight="600" fill="#333">3.4 Encryption / RBAC</text>
+          <rect x="5" y="105" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="120" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M3: ETL Ready</text>
+        </g>
+        <g transform="translate(505, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">4.1 Sprint 1: SSO/MFA</text>
+          <text x="8" y="42" font-weight="600" fill="#333">4.2 Sprint 2: Records</text>
+          <text x="8" y="64" font-weight="600" fill="#333">4.3 Sprint 3: Enrolment</text>
+          <text x="8" y="86" font-weight="600" fill="#333">4.4 Sprint 4: Payment</text>
+          <text x="8" y="108" font-weight="600" fill="#333">4.5 Sprint 5: Mobile UI</text>
+          <rect x="5" y="125" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="140" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M4: Features Done</text>
+        </g>
+        <g transform="translate(670, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">5.1 Load &amp; Stress Test</text>
+          <text x="8" y="42" font-weight="600" fill="#333">5.2 Security Pentest</text>
+          <text x="8" y="64" font-weight="600" fill="#333">5.3 User Acceptance</text>
+          <text x="8" y="86" font-weight="600" fill="#333">5.4 Defect Fixes</text>
+          <rect x="5" y="105" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="120" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M5: UAT Signed Off</text>
+        </g>
+        <g transform="translate(835, 140)">
+          <rect x="0" y="0" width="150" height="160" rx="3" fill="#F4F6F9" stroke="#D0D7DE"/>
+          <text x="8" y="20" font-weight="600" fill="#333">6.1 User Guides/Media</text>
+          <text x="8" y="42" font-weight="600" fill="#333">6.2 Staff Onboarding</text>
+          <text x="8" y="64" font-weight="600" fill="#333">6.3 Blue-Green Cutover</text>
+          <text x="8" y="86" font-weight="600" fill="#333">6.4 PIR &amp; Lessons</text>
+          <rect x="5" y="105" width="140" height="22" rx="2" fill="#FFF3CD" stroke="#FFEEBA"/>
+          <text x="75" y="120" fill="#856404" font-weight="bold" font-size="8.5" text-anchor="middle">◆ M6: Closed</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">WBS Breakdown across 6 Functional Work Packages (*Red denotes Critical Path task). Source: diagrams.net / draw.io</div>
+    </div>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 1 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The 100% rule-compliant hierarchical breakdown decomposes project scope into 6 major deliverables, 28 discrete work packages, and 6 formal milestone quality gates.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It establishes clear work package ownership, boundaries between in-scope features and excluded legacy HR systems, and provides the baseline for ProjectLibre schedule mapping.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Enforced a strict scope freeze following Milestone 2 sign-off. Any additional functional requests must submit formal Change Requests to prevent uncontrolled scope creep.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="section2">
+    <div class="section-header">
+      <h2>2. Schedule, Cost &amp; Resources</h2>
+      <span class="section-badge">Lead: Tanvir Ahmed &amp; Momen Ahmed</span>
+    </div>
+
+    <p><strong>ProjectLibre Scheduling &amp; Critical Path:</strong> The ProjectLibre schedule models 120 working days across a 24-calendar-week duration (02-Feb-2026 to 17-Jul-2026). The Critical Path spans <strong>1.1 → 1.2 → 1.3 → 2.1 → 2.3 → 2.4 → 3.1 → 3.2 → 3.3 → 4.1 → 4.2 → 4.3 → 4.4 → 5.1 → 5.2 → 5.3 → 5.4 → 6.3 → 6.4</strong>. Any slip along this 86-working-day path directly extends the project completion date beyond Semester 1 enrolment.</p>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Deliverable Name</th>
+            <th class="text-center">Scheduled Date</th>
+            <th class="text-center">Float</th>
+            <th>Approval Authority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>M1</strong></td>
+            <td>Project Charter &amp; Governance Signed Off</td>
+            <td class="text-center">20-Feb-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>CIO / Project Sponsor</td>
+          </tr>
+          <tr>
+            <td><strong>M2</strong></td>
+            <td>Technical Architecture &amp; API Specs Approved</td>
+            <td class="text-center">20-Mar-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>Lead Solutions Architect</td>
+          </tr>
+          <tr>
+            <td><strong>M3</strong></td>
+            <td>Data Cleansing &amp; Migration ETL Scripts Validated</td>
+            <td class="text-center">24-Apr-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>Database &amp; Migration Lead</td>
+          </tr>
+          <tr>
+            <td><strong>M4</strong></td>
+            <td>Core Portal Development Feature Complete</td>
+            <td class="text-center">12-Jun-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>Lead Software Engineer</td>
+          </tr>
+          <tr>
+            <td><strong>M5</strong></td>
+            <td>UAT &amp; Independent Security Penetration Sign-Off</td>
+            <td class="text-center">10-Jul-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>University Registrar &amp; Security Officer</td>
+          </tr>
+          <tr>
+            <td><strong>M6</strong></td>
+            <td>Production Cutover &amp; Final Operational Handover</td>
+            <td class="text-center">17-Jul-2026</td>
+            <td class="text-center">0 Days</td>
+            <td>CIO &amp; Steering Committee</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:0.75rem;"><strong>Cost &amp; Resource Allocation:</strong> Direct internal and contracted labor totals $219,600 (305 resource days across PM, Architect, Devs, DB specialist, and QA). Capital expenditure (Capex) totals $90,500, covering AWS multi-AZ infrastructure ($28,500), Okta SSO licences ($24,000), CREST penetration testing ($16,500), and training media ($9,500). Base Budget at Completion (BAC) is <strong>$385,000</strong>. Adding a 10% technical Contingency Reserve ($38,500) yields a Cost Baseline of <strong>$423,500</strong>. A 5% Management Reserve ($19,250) brings total allocated budget to <strong>$442,750</strong>, leaving $7,250 headroom below the $450,000 institutional cap.</p>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 2 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The ProjectLibre Gantt chart reveals zero total float along the database migration (WBS 3.2) and payment integration (WBS 4.4) sequences, proving they dictate the project finish date.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It alerts management that non-critical activities (such as staff training guides with 8 days float) can be delayed without risk, whereas any delay in ETL scripts directly threatens the Semester 1 go-live.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Authorized ring-fenced resource allocation for the Senior Database Engineer and pre-approved the drawdown of $6,800 from contingency reserves if ETL test runs fall more than 3 days behind.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="section3">
+    <div class="section-header">
+      <h2>3. Risk, Stakeholders &amp; Communication</h2>
+      <span class="section-badge">Lead: Momen Ahmed (242048)</span>
+    </div>
+
+    <p><strong>Risk Assessment &amp; 5×5 Scoring:</strong> Risks are evaluated using a standard 5×5 matrix where Score = Likelihood (1–5) × Impact (1–5). Ten active risks are monitored in the Risk Register. The top prioritized risks are:</p>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Risk Description</th>
+            <th class="text-center">L</th>
+            <th class="text-center">I</th>
+            <th class="text-center">Score</th>
+            <th>Priority</th>
+            <th>Owner</th>
+            <th>Mitigation &amp; Contingency Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>R01</strong></td>
+            <td>Legacy database schema mismatch &amp; student record corruption</td>
+            <td class="text-center">4</td>
+            <td class="text-center">5</td>
+            <td class="text-center font-bold">20</td>
+            <td><span class="badge badge-danger">Extreme</span></td>
+            <td>Momen Ahmed</td>
+            <td>Execute staged ETL runs with 10% sandbox sampling; automated checksum validation with instant rollback.</td>
+          </tr>
+          <tr>
+            <td><strong>R02</strong></td>
+            <td>Cloud infrastructure outage during peak enrolment surge (&gt;10k users)</td>
+            <td class="text-center">3</td>
+            <td class="text-center">5</td>
+            <td class="text-center font-bold">15</td>
+            <td><span class="badge badge-danger">Extreme</span></td>
+            <td>Tanvir Ahmed</td>
+            <td>Configure AWS Elastic Load Balancing and Redis cache; conduct load testing at 250% capacity (15,000 sessions).</td>
+          </tr>
+          <tr>
+            <td><strong>R03</strong></td>
+            <td>Faculty and administrative staff resistance to adopting new portal</td>
+            <td class="text-center">4</td>
+            <td class="text-center">3</td>
+            <td class="text-center font-bold">12</td>
+            <td><span class="badge badge-warning">High</span></td>
+            <td>MD Rejvi Jaman</td>
+            <td>Mobilize 12 departmental 'Change Champions'; deliver 30-min drop-in clinics and interactive micro-videos.</td>
+          </tr>
+          <tr>
+            <td><strong>R04</strong></td>
+            <td>Student PII data breach violating Australian Privacy Principles (APP)</td>
+            <td class="text-center">2</td>
+            <td class="text-center">5</td>
+            <td class="text-center font-bold">10</td>
+            <td><span class="badge badge-warning">High</span></td>
+            <td>Tanvir Ahmed</td>
+            <td>Enforce AES-256 at-rest and TLS 1.3 encryption; mandate independent CREST security penetration audit.</td>
+          </tr>
+          <tr>
+            <td><strong>R05</strong></td>
+            <td>Scope creep driven by conflicting faculty feature customizations</td>
+            <td class="text-center">4</td>
+            <td class="text-center">3</td>
+            <td class="text-center font-bold">12</td>
+            <td><span class="badge badge-warning">High</span></td>
+            <td>Tanvir Ahmed</td>
+            <td>Strict CCB governance; non-standard functional requests deferred to Phase 2 enhancement backlog.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:0.75rem;"><strong>Stakeholder Engagement &amp; Power-Interest Mapping:</strong> Stakeholders are segmented into four distinct engagement strategies:</p>
+    <ul style="margin-left: 1.5rem; margin-top:0.5rem; font-size:0.88rem;">
+      <li><strong>Manage Closely (High Power, High Interest):</strong> CIO / Project Sponsor (SH01), University Registrar (SH02), and Central IT Security (SH05). Managed through weekly 1-on-1 briefings and formal fortnightly Steering Committee governance.</li>
+      <li><strong>Keep Satisfied (High Power, Low Interest):</strong> Academic Senate &amp; Faculty Deans (SH03), TEQSA Regulators (SH08), and University Finance (SH06). Managed via monthly executive summaries and automated audit compliance logs.</li>
+      <li><strong>Keep Informed (Low Power, High Interest):</strong> Student Council &amp; 28k Students (SH04), Helpdesk Staff (SH07). Managed through bi-weekly email bulletins, beta focus groups, and live training webinars.</li>
+    </ul>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 3 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The 5×5 heat map highlights that data corruption (R01, score 20) and enrolment crash (R02, score 15) represent the primary organizational vulnerabilities.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It justifies shifting project expenditure toward automated verification scripts and cloud redundancy rather than superficial cosmetic features.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Reallocated $16,500 of the Capex budget to commission an external CREST-certified penetration testing firm and scheduled load tests during off-peak hours at 2.5× peak capacity.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="section4">
+    <div class="section-header">
+      <h2>4. Quality, Change &amp; Team Structure</h2>
+      <span class="section-badge">Lead: MD Rejvi Jaman Mafti (241964)</span>
+    </div>
+
+    <p><strong>Quality Assurance &amp; Control Metrics:</strong> Quality is governed by quantifiable acceptance criteria rather than subjective assessments. The six binding project standards are:</p>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Quality Objective</th>
+            <th>Target Metric / KPI</th>
+            <th class="text-center">Threshold</th>
+            <th>Verification Method</th>
+            <th>Control Action if Breached</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>System Availability</td>
+            <td>Uptime during semester terms</td>
+            <td class="text-center font-bold">&ge; 99.95%</td>
+            <td>AWS CloudWatch Synthetics</td>
+            <td>Failover to standby AWS multi-AZ instance; page on-call DevOps engineer.</td>
+          </tr>
+          <tr>
+            <td>Peak Concurrency</td>
+            <td>Response time at 12k sessions</td>
+            <td class="text-center font-bold">&lt; 1.80s</td>
+            <td>JMeter automated load suite</td>
+            <td>Scale ECS container tasks; optimize Redis query caching.</td>
+          </tr>
+          <tr>
+            <td>Migration Fidelity</td>
+            <td>Academic record checksum match</td>
+            <td class="text-center font-bold">100.0%</td>
+            <td>Automated SHA-256 hash checks</td>
+            <td>Halt migration pipeline, execute automated DB rollback to snapshot.</td>
+          </tr>
+          <tr>
+            <td>Defect Density</td>
+            <td>Open defects at UAT sign-off</td>
+            <td class="text-center font-bold">0 P1 / 0 P2</td>
+            <td>Jira defect tracker scrub</td>
+            <td>Enforce mandatory code freeze dedicated solely to bug remediation.</td>
+          </tr>
+          <tr>
+            <td>Usability</td>
+            <td>System Usability Scale (SUS)</td>
+            <td class="text-center font-bold">&ge; 80 / 100</td>
+            <td>50-student beta pilot survey</td>
+            <td>Execute targeted 3-day UI polish sprint on low-scoring workflows.</td>
+          </tr>
+          <tr>
+            <td>Cybersecurity</td>
+            <td>Unresolved vulnerabilities</td>
+            <td class="text-center font-bold">Zero High/Crit</td>
+            <td>Independent CREST pentest</td>
+            <td>Patch code vulnerabilities within 72 hours; rerun penetration scan.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:0.75rem;"><strong>Change Control Decision (Change Request CR-01):</strong> On 14-Apr-2026, the University Cybersecurity Advisory Board mandated Multi-Factor Authentication (MFA) following updated Australian Cyber Security Centre (ACSC) Essential Eight guidance. The Change Control Board (CCB) conducted impact analysis: (1) <em>Scope:</em> Add Twilio SMS and TOTP authenticator hooks; (2) <em>Schedule:</em> +8 working days in authentication development, absorbed by fast-tracking UI testing in parallel with Sprint 2 (zero delay to go-live); (3) <em>Cost:</em> +$14,500 AUD funded entirely from the $38,500 Contingency Reserve; (4) <em>Risk:</em> Drastically mitigates PII data breach risk R04. The CCB <strong>APPROVED</strong> CR-01.</p>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 4 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The RACI matrix clearly separates single-point accountability (Accountable = PM/CIO) from task execution (Responsible = Technical Leads), preventing overlapping authority.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It documents that CR-01 was absorbed through formal governance, utilizing pre-planned contingency funds rather than causing an unmanaged scope blow-out.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Authorized drawing $14,500 from the Contingency Reserve to fund CR-01 while enforcing an immediate scope freeze on all subsequent non-mandatory enhancement requests.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section id="section5">
+    <div class="section-header">
+      <h2>5. Tracking &amp; Project Dashboard</h2>
+      <span class="section-badge">Lead: MD Rejvi Jaman Mafti (241964)</span>
+    </div>
+
+    <p><strong>Mid-Project Performance Review (Week 14 Status Snapshot):</strong> Project tracking combines Trello sprint boards for daily task workflow (To Do, In Progress, Review/QA, Done) with Earned Value Management (EVM) in Excel to monitor schedule and budget performance against the baseline.</p>
+
+    <!-- EVM KPI Cards -->
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-label">Planned Value (PV)</div>
+        <div class="kpi-val">$225,000</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Earned Value (EV)</div>
+        <div class="kpi-val">$198,000</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Actual Cost (AC)</div>
+        <div class="kpi-val">$210,000</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Schedule Var (SV)</div>
+        <div class="kpi-val negative">-$27,000</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Cost Var (CV)</div>
+        <div class="kpi-val negative">-$12,000</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">SPI (EV/PV)</div>
+        <div class="kpi-val neutral">0.880</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">CPI (EV/AC)</div>
+        <div class="kpi-val neutral">0.943</div>
+      </div>
+    </div>
+
+    <p style="margin-top:0.75rem;"><strong>Variance Root Cause Analysis &amp; Corrective Action:</strong></p>
+    <ul style="margin-left: 1.5rem; margin-top:0.5rem; font-size:0.88rem;">
+      <li><strong>Variance Identification:</strong> At Week 14, EV ($198k) lags PV ($225k) by $27,000, yielding an SPI of 0.880 (10 working days behind schedule on critical path task 3.2: Automated ETL Scripts). CPI is 0.943 ($12k cost overrun).</li>
+      <li><strong>Root Cause:</strong> Legacy Ellucian Banner tables contained unindexed foreign keys and corrupted historical address fields, causing automated migration scripts to fail checksum tests and require manual data cleansing.</li>
+      <li><strong>Corrective Management Action:</strong> (1) <em>Schedule Crashing:</em> Released $6,800 from Contingency Reserve to contract an external Senior ETL Engineer for two weeks; (2) <em>Fast-Tracking:</em> Re-sequenced Sprint 3 course enrolment frontend development using simulated mock data in parallel with backend ETL scripts; (3) <em>Outcome:</em> Recovered 7 of the 10 lost days by Week 16, restoring SPI to 0.96 and safeguarding the critical path.</li>
+    </ul>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 5 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The EVM metrics reveal that work progress slipped 12% behind baseline at Week 14 due to an isolated technical bottleneck in legacy database migration.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It demonstrates that the delay was caught early through objective variance metrics rather than being discovered during deployment.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Approved an evidence-backed intervention combining schedule crashing ($6.8k contingency spend) and fast-tracking, pulling the project back to on-schedule status without compromising quality.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section id="section6">
+    <div class="section-header">
+      <h2>6. Integration &amp; Final Management Recommendation</h2>
+      <span class="section-badge">Group Collaborative Synthesis</span>
+    </div>
+
+    <p><strong>Artefact Integration &amp; Alignment Synthesis:</strong> Project OmniPortal demonstrates rigorous methodological alignment across all six PM knowledge domains. The business problem (fragmented student experience and high support costs) directly informed the Charter purpose and Scope statement. The Scope was partitioned through the WBS into 28 work packages, which were directly transcribed into the ProjectLibre schedule and mirrored on the Trello board. Resource costing derived the $385,000 BAC baseline. The 5×5 Risk Register anticipated database migration failure, which informed the Week 14 EVM variance response and justified the $38,500 Contingency Reserve. Finally, Quality metrics and Change Request CR-01 ensured compliance with federal cybersecurity directives without delaying production cutover.</p>
+
+    <div class="table-responsive" style="margin-top:1rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Knowledge Domain</th>
+            <th>Primary Artefact</th>
+            <th>Integrated Linkage to Subsequent PM Domain</th>
+            <th class="text-center">Integrity Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Scope Management</td>
+            <td>WBS &amp; Dictionary (draw.io)</td>
+            <td>Work packages 1.1 to 6.5 map 1:1 into ProjectLibre tasks &amp; Trello cards</td>
+            <td class="text-center"><span class="badge badge-success">Verified 100%</span></td>
+          </tr>
+          <tr>
+            <td>Schedule Management</td>
+            <td>ProjectLibre Gantt (.pod)</td>
+            <td>Critical path dictates sprint priorities and zero-float milestones</td>
+            <td class="text-center"><span class="badge badge-success">Verified 100%</span></td>
+          </tr>
+          <tr>
+            <td>Cost Management</td>
+            <td>Cost Model (.xlsx)</td>
+            <td>Labour and Capex rates establish EVM Planned Value ($385k BAC)</td>
+            <td class="text-center"><span class="badge badge-success">Verified 100%</span></td>
+          </tr>
+          <tr>
+            <td>Risk Management</td>
+            <td>5×5 Heat Map (.xlsx)</td>
+            <td>Risks R01 &amp; R04 fund contingency reserve and security audit scopes</td>
+            <td class="text-center"><span class="badge badge-success">Verified 100%</span></td>
+          </tr>
+          <tr>
+            <td>Project Control</td>
+            <td>EVM Dashboard (.xlsx)</td>
+            <td>Week 14 SPI/CPI variance triggers crashing &amp; fast-tracking actions</td>
+            <td class="text-center"><span class="badge badge-success">Verified 100%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:0.75rem;"><strong>Final Evidence-Based Management Recommendation:</strong> Based on cumulative project evidence, the Project Management Team recommends that the Project Sponsor and University Steering Committee <strong>AUTHORIZE PROCEEDING TO FINAL PRODUCTION CUTOVER (GO-LIVE)</strong>. The project status has transitioned from Amber (Week 14) to <strong>Green (Week 20)</strong> following successful UAT completion and independent security penetration sign-off. The final projected cost at completion (EAC) is <strong>$406,300 AUD</strong>, fully contained within the $450,000 budget ceiling. The residual contingency reserve ($17,200) is released back to university central funds upon successful completion of the 30-day operational hypercare period.</p>
+
+    <!-- Tri-part Analysis Box -->
+    <div class="analysis-box">
+      <div class="analysis-title">Section 6 Artefact Interpretation &amp; Management Logic</div>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <strong>What it Shows</strong>
+          The project health metrics confirm that all six milestone gates have been validated and critical path risks have been successfully retired.
+        </div>
+        <div class="analysis-item">
+          <strong>Why it is Important</strong>
+          It replaces subjective optimism with empirical evidence (zero P1 defects, 100% data fidelity, $43.7k budget headroom), providing executive confidence.
+        </div>
+        <div class="analysis-item">
+          <strong>Management Decision</strong>
+          Formal recommendation to authorize blue-green production cutover on 17-Jul-2026 and initiate legacy software decommissioning to realize $120,000 in annual recurring savings.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Apex Metropolitan University — OmniPortal Project Management Team</p>
+  <p style="opacity:0.75; font-size:0.78rem; margin-top:0.25rem;">Tanvir Ahmed (238983) | Momen Ahmed (242048) | MD Rejvi Jaman Mafti (241964) | BISY2004 Assessment 2</p>
+</footer>
+
+</body>
+</html>
