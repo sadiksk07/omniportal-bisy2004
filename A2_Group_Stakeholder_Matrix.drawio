@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15T00:00:00.000Z" agent="Mozilla/5.0" version="21.0.0" type="device">
+  <diagram id="stk-matrix" name="Power-Interest Matrix">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;PROJECT OMNIPORTAL — STAKEHOLDER POWER-INTEREST MATRIX&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontColor=#1B365D;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Quadrant 1: Keep Satisfied (High Power, Low Interest) -->
+        <mxCell id="q_sat" value="&lt;b&gt;KEEP SATISFIED&lt;/b&gt;&lt;br&gt;&lt;i&gt;(High Power, Low Interest)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;verticalAlign=top;align=center;fontColor=#856404;fontSize=13;fontStyle=1;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="400" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Quadrant 2: Manage Closely (High Power, High Interest) -->
+        <mxCell id="q_close" value="&lt;b&gt;MANAGE CLOSELY&lt;/b&gt;&lt;br&gt;&lt;i&gt;(High Power, High Interest)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8D7DA;strokeColor=#F5C6CB;verticalAlign=top;align=center;fontColor=#721C24;fontSize=13;fontStyle=1;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="400" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Quadrant 3: Monitor (Low Power, Low Interest) -->
+        <mxCell id="q_mon" value="&lt;b&gt;MONITOR&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Low Power, Low Interest)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E3E5;strokeColor=#D6D8DB;verticalAlign=top;align=center;fontColor=#383D41;fontSize=13;fontStyle=1;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="140" y="400" width="400" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Quadrant 4: Keep Informed (Low Power, High Interest) -->
+        <mxCell id="q_inf" value="&lt;b&gt;KEEP INFORMED&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Low Power, High Interest)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D4EDDA;strokeColor=#C3E6CB;verticalAlign=top;align=center;fontColor=#155724;fontSize=13;fontStyle=1;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="400" width="400" height="300" as="geometry" />
+        </mxCell>
+
+        <!-- Stakeholders in Manage Closely -->
+        <mxCell id="sh_cio" value="&lt;b&gt;SH01: CIO / Sponsor&lt;/b&gt;&lt;br&gt;Budget, Governance, Executive Veto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#721C24;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="140" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sh_reg" value="&lt;b&gt;SH02: University Registrar&lt;/b&gt;&lt;br&gt;Academic Records, Enrolment Operations" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#721C24;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="210" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sh_sec" value="&lt;b&gt;SH05: Central IT Security &amp; Ops&lt;/b&gt;&lt;br&gt;Cybersecurity, ISO 27001, AWS Architecture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#721C24;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="280" width="340" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stakeholders in Keep Satisfied -->
+        <mxCell id="sh_sen" value="&lt;b&gt;SH03: Academic Senate &amp; Deans&lt;/b&gt;&lt;br&gt;Teaching Continuity, Marks Submission" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#856404;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="140" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sh_regu" value="&lt;b&gt;SH08: TEQSA &amp; Privacy Commissioner&lt;/b&gt;&lt;br&gt;Regulatory Standards, Privacy Audits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#856404;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="210" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sh_fin" value="&lt;b&gt;SH06: University Finance &amp; Accounts&lt;/b&gt;&lt;br&gt;Tuition Fees, Payment Reconciliation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#856404;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="280" width="340" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stakeholders in Keep Informed -->
+        <mxCell id="sh_src" value="&lt;b&gt;SH04: Student Council &amp; Students (28k)&lt;/b&gt;&lt;br&gt;Mobile Usability, Course Cart, Timetabling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#155724;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="460" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sh_help" value="&lt;b&gt;SH07: Student Support &amp; Helpdesk&lt;/b&gt;&lt;br&gt;User Support Load, Knowledgebase Guides" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#155724;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="590" y="530" width="340" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Stakeholders in Monitor -->
+        <mxCell id="sh_vend" value="&lt;b&gt;Third-Party Software SaaS Vendors&lt;/b&gt;&lt;br&gt;Legacy software deprecation notices" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c757d;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="170" y="480" width="340" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Axis Labels -->
+        <mxCell id="ax_pow" value="&lt;b&gt;▲ POWER / INFLUENCE&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#1B365D;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ax_int" value="&lt;b&gt;INTEREST / STAKE ►&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#1B365D;" vertex="1" parent="1">
+          <mxGeometry x="470" y="720" width="180" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
