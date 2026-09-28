@@ -1,0 +1,55 @@
+========================================================================
+BISY2004 PROJECT MANAGEMENT — ASSESSMENT 2: FINAL SUBMISSION PACKAGE
+========================================================================
+
+1. LIVE WORKING WEBSITE URL (Checked & Active):
+   https://sadiksk07.github.io/omniportal-bisy2004/
+
+2. GROUP MEMBERS & STUDENT IDs:
+   - Tanvir Ahmed (Student ID: 238983) — Project Lead & Systems Architect
+   - Momen Ahmed (Student ID: 242048) — Risk, Finance & Governance Lead
+   - MD Rejvi Jaman Mafti (Student ID: 241964) — Quality, Delivery & Tracking Lead
+
+3. SELECTED PROJECT SCENARIO:
+   Scenario C — University Student Portal Consolidation ("Project OmniPortal")
+   Target: Apex Metropolitan University (28,000 students, 3,200 staff)
+   Budget Cap: $450,000 AUD (BAC Baseline: $385,000 AUD)
+   Timeline: 24 Calendar Weeks (120 Working Days: 02-Feb-2026 to 17-Jul-2026)
+
+========================================================================
+FINAL MOODLE SUBMISSION FILE CHECKLIST:
+========================================================================
+[1] Working Website URL:
+    https://sadiksk07.github.io/omniportal-bisy2004/
+
+[2] PDF Evidence Pack:
+    A2_GroupXX_Evidence.pdf
+    (Contains Cover Page, Tool Index, WBS, Schedule, 5x5 Heat Map,
+     Stakeholder Matrix, CR-01, RACI, Trello & EVM Dashboard,
+     No-AI Academic Integrity Declaration signed, and APA 7th References)
+
+[3] Excel Data Workbook:
+    A2_GroupXX_ProjectData.xlsx
+    (Contains 8 complete tabs with all formulas, cost model, 5x5 risk
+     heat map, EVM calculations, and closure checklist)
+
+[4] ProjectLibre Native Source File:
+    A2_GroupXX_ProjectLibre.pod
+    (To generate: Open ProjectLibre -> File -> Open -> select
+     'A2_Group_ProjectLibre_import.xml' -> File -> Save As ->
+     'A2_GroupXX_ProjectLibre.pod')
+
+[5] Diagram Exports (Already embedded in Evidence Pack & Website):
+    - A2_Group_WBS_Diagram.drawio
+    - A2_Group_Stakeholder_Matrix.drawio
+
+========================================================================
+SUPPORTING INTERNAL GROUP PREPARATION FILES (In 'Supporting/' folder):
+========================================================================
+- PRESENTATION_SCRIPT_15MIN.md       (12-15 min script for Tanvir, Momen, Rejvi)
+- INDIVIDUAL_VIVA_PREPARATION_PACK.md (Q&A coaching bank with model answers)
+- ProjectLibre_Step_by_Step_Guide.md (Instructions for ProjectLibre)
+- Trello_Board_Setup_Guide.md         (Instructions for Trello board setup)
+- WEBSITE_CONTENT_GOOGLE_SITES.md     (Optional copy-paste text for Google Sites)
+- EVIDENCE_PACK_BLUEPRINT.md          (Source markdown for the PDF evidence pack)
+========================================================================

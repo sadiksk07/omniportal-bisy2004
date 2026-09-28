@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net" modified="2026-02-15T00:00:00.000Z" agent="Mozilla/5.0" version="21.0.0" type="device">
+  <diagram id="wbs-diagram" name="OmniPortal WBS">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Level 0: Project -->
+        <mxCell id="root_proj" value="&lt;b&gt;PROJECT OMNIPORTAL&lt;/b&gt;&lt;br&gt;University Portal Consolidation&lt;br&gt;&lt;i&gt;Budget: $450k | 24 Weeks&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1B365D;strokeColor=#0D1E36;fontColor=#ffffff;fontSize=13;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Level 1 Phases -->
+        <!-- 1.0 -->
+        <mxCell id="p1" value="&lt;b&gt;1.0 Initiation &amp; Governance&lt;/b&gt;&lt;br&gt;&lt;i&gt;15 Days | $16,500&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- 2.0 -->
+        <mxCell id="p2" value="&lt;b&gt;2.0 Requirements &amp; Architecture&lt;/b&gt;&lt;br&gt;&lt;i&gt;20 Days | $31,200&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- 3.0 -->
+        <mxCell id="p3" value="&lt;b&gt;3.0 Data Migration &amp; Security&lt;/b&gt;&lt;br&gt;&lt;i&gt;25 Days | $39,500&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="560" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- 4.0 -->
+        <mxCell id="p4" value="&lt;b&gt;4.0 Core Portal Development&lt;/b&gt;&lt;br&gt;&lt;i&gt;35 Days | $68,000&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="820" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- 5.0 -->
+        <mxCell id="p5" value="&lt;b&gt;5.0 QA, Security &amp; Pilot&lt;/b&gt;&lt;br&gt;&lt;i&gt;20 Days | $34,800&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+        <!-- 6.0 -->
+        <mxCell id="p6" value="&lt;b&gt;6.0 Deployment &amp; Closure&lt;/b&gt;&lt;br&gt;&lt;i&gt;15 Days | $24,200&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2A4D7C;strokeColor=#1B365D;fontColor=#ffffff;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="150" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors from Root to Phases -->
+        <mxCell id="c_root_p1" edge="1" parent="1" source="root_proj" target="p1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_root_p2" edge="1" parent="1" source="root_proj" target="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_root_p3" edge="1" parent="1" source="root_proj" target="p3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_root_p4" edge="1" parent="1" source="root_proj" target="p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_root_p5" edge="1" parent="1" source="root_proj" target="p5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c_root_p6" edge="1" parent="1" source="root_proj" target="p6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1B365D;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 1 Child Tasks -->
+        <mxCell id="t1_1" value="1.1 Charter &amp; Approval" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t1_2" value="1.2 PMP &amp; Risk Framework" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t1_3" value="1.3 Governance Kickoff" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="◆ M1: Charter Signed Off" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="365" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 2 Child Tasks -->
+        <mxCell id="t2_1" value="2.1 Requirements Gathering" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t2_2" value="2.2 Privacy / APP Review" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t2_3" value="2.3 Cloud Architecture Spec" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t2_4" value="2.4 API Integration Protocols" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="365" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="◆ M2: Specs Approved" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="410" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 3 Child Tasks -->
+        <mxCell id="t3_1" value="3.1 Legacy Data Profiling" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t3_2" value="3.2 Automated ETL Scripts" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8D7DA;strokeColor=#F5C6CB;fontColor=#721C24;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t3_3" value="3.3 Schema &amp; Index Tuning" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t3_4" value="3.4 AES-256 &amp; RBAC Setup" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="365" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="◆ M3: ETL &amp; Security Ready" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="570" y="410" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 4 Child Tasks -->
+        <mxCell id="t4_1" value="4.1 Sprint 1: SSO &amp; MFA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t4_2" value="4.2 Sprint 2: Records &amp; Timetable" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t4_3" value="4.3 Sprint 3: Enrolment Cart Flow" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t4_4" value="4.4 Sprint 4: Payment Gateway" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="365" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t4_5" value="4.5 Sprint 5: Mobile UI Optimization" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="410" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="◆ M4: Core Features Done" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="830" y="455" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 5 Child Tasks -->
+        <mxCell id="t5_1" value="5.1 Load &amp; Performance Test" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t5_2" value="5.2 Penetration &amp; Security Audit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t5_3" value="5.3 User Acceptance Testing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t5_4" value="5.4 Defect Remediation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="365" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="◆ M5: UAT Sign-Off" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="410" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Phase 6 Child Tasks -->
+        <mxCell id="t6_1" value="6.1 User Guides &amp; Video Drops" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="230" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t6_2" value="6.2 Staff Onboarding Clinics" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="275" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t6_3" value="6.3 Production Blue-Green Cutover" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="320" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t6_4" value="6.4 Lessons Learned &amp; PIR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EBF1F5;strokeColor=#B0C4DE;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="365" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" value="◆ M6: Project Closure" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3CD;strokeColor=#FFEEBA;fontColor=#856404;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="410" width="200" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
